@@ -1,0 +1,26 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "name": "Catan Extravaganza",
+            "event_date": "2021-02-16",
+            "event_time":"12:30",
+            "game_id": 1,
+            "host": 1
+
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "name": "Candyland Extravaganza",
+            "event_date": "2021-05-16",
+            "event_time":"13:30",
+            "game_id": 2,
+            "host": 1
+
+        }
+    }
+]

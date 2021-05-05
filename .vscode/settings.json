@@ -1,0 +1,13 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "/Users/samanthacampbell/.local/share/virtualenvs/levelup--TdBsJ1n/bin/python",
+    "python.linting.enabled": false,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "levelup",
+            "database": "db.sqlite3"
+        }
+    ]
+}
