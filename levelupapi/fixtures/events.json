@@ -22,5 +22,17 @@
             "host": 1
 
         }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 3,
+        "fields": {
+            "name": "Vale of the Frost King campaign. All weekend.",
+            "event_date": "2021-05-16",
+            "event_time":"13:30",
+            "game_id": 3,
+            "host": 1
+
+        }
     }
 ]
