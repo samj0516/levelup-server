@@ -36,7 +36,7 @@ class GameView(ViewSet):
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
-        type = GameType.objects.get(pk=request.data["gametype_id"])
+        type = GameType.objects.get(pk=request.data["type"])
         game.type = type
 
         # Try to save the new game to the database, then
@@ -148,5 +148,5 @@ class GameSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'name', 'maker', 'max_players', 'min_players', 'difficulty_level', 'type', 'gamer')
+        fields = ("id", "name", "maker", "max_players", "min_players", "difficulty_level", "type", "gamer")
         depth = 2
