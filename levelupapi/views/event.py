@@ -21,7 +21,7 @@ class EventView(ViewSet):
             Response -- JSON serialized event instance
         """
         gamer = Gamer.objects.get(user=request.auth.user)
-        game = Game.objects.get(pk=request.data["gameId"])
+        game = Game.objects.get(pk=request.data["game"])
         event = Event()
         event.name = request.data["name"]
         event.event_date = request.data["event_date"]
@@ -96,7 +96,7 @@ class EventView(ViewSet):
         events = Event.objects.all()
 
         # Support filtering events by game
-        game = self.request.query_params.get('gameId', None)
+        game = self.request.query_params.get('game_id', None)
         if game is not None:
             events = events.filter(game__id=game)
 
@@ -127,6 +127,7 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ('id', 'name', 'event_date',
                   'event_time', 'game', 'host')
+        depth = 1
 
 
 class GameSerializer(serializers.ModelSerializer):
