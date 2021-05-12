@@ -139,6 +139,29 @@ class GameView(ViewSet):
             games, many=True, context={'request': request})
         return Response(serializer.data)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a game
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        gamer = Gamer.objects.get(user=request.auth.user)
+
+        game = Game.objects.get(pk=pk)
+        game.name = request.data["name"]
+        game.maker = request.data["maker"]
+        game.max_players = request.data["max_players"]
+        game.min_players = request.data["min_players"]
+        game.difficulty_level = request.data["difficulty_level"]
+        game.gamer = gamer
+
+        gametype = GameType.objects.get(pk=request.data["game"])
+        game.type = gametype
+        game.save()
+
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
+
+
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games
