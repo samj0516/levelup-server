@@ -155,8 +155,8 @@ class GameView(ViewSet):
         game.difficulty_level = request.data["difficulty_level"]
         game.gamer = gamer
 
-        gametype = GameType.objects.get(pk=request.data["game"])
-        game.type = gametype
+        type = GameType.objects.get(pk=request.data["type"])
+        game.type = type
         game.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
